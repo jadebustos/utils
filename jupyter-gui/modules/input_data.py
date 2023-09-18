@@ -32,5 +32,12 @@ dropdown = widgets.Dropdown(
     value=2,
     description='Dimensionality reduction algorithm:',
     layout = layout,
-    style= {'description_width': 'initial'}
+    style= {'description_width': 'initial'} # this is for long description to be shown
+)
+
+radio_buttons = widgets.RadioButtons(
+    options=['pepperoni', 'pineapple', 'anchovies'],
+#     value='pineapple',
+    description='Pizza topping:',
+    disabled=False
 )
