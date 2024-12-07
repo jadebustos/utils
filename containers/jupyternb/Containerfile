@@ -2,14 +2,9 @@
 # https://developer.parrot.com/docs/olympe/pip_on_debian_based_distros.html
 # https://www.linode.com/docs/guides/create-a-python-virtualenv-on-debian-10/
 #  jupyter contrib nbextension install --user
-#FROM localhost/notebook:v1
-FROM python:3.12.8-slim-bookworm
-LABEL org.opencontainers.image.authors="Jose Angel de Bustos Perez <jadebustos@gmail.com>"
-LABEL org.opencontainers.image.description="Jupyter Notebook"
-LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
-LABEL org.opencontainers.image.revision="1.0"
+# building stage
+FROM python:3.12.8-slim-bookworm as builder
 COPY requirements.txt /tmp
-COPY runme.sh /
 RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt autoremove --yes && \
     /usr/bin/apt install gcc g++ clang gfortran flang-16 libopenblas-dev cmake cargo --yes && \
     /usr/bin/apt clean && /usr/sbin/useradd -md /home/notebook -s /bin/bash notebook
@@ -18,7 +13,20 @@ RUN /usr/local/bin/python3 -m venv /home/notebook/jupyter && /usr/bin/mkdir /hom
     /bin/bash -c "source /home/notebook/jupyter/bin/activate ; /usr/local/bin/pip install --upgrade pip ; \
     /home/notebook/jupyter/bin/pip install -r /tmp/requirements.txt " && \
     /usr/bin/mkdir /home/notebook/.jupyter
-COPY jupyter_server_config.json /home/notebook/.jupyter
+
+# final stage
+FROM python:3.12.8-slim-bookworm
+LABEL org.opencontainers.image.authors="Jose Angel de Bustos Perez <jadebustos@gmail.com>"
+LABEL org.opencontainers.image.description="Jupyter Notebook"
+LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
+LABEL org.opencontainers.image.revision="1.0"
+RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt autoremove --yes && \
+    /usr/bin/apt clean && /usr/sbin/useradd -md /home/notebook -s /bin/bash notebook
+USER notebook
+RUN /usr/bin/mkdir /home/notebook/.jupyter && /usr/bin/mkdir /home/notebook/data
+COPY --chown=notebook --from=builder /home/notebook/jupyter  /home/notebook/jupyter
+COPY runme.sh /
+COPY --chown=notebook jupyter_server_config.json /home/notebook/.jupyter
 EXPOSE 8888
 WORKDIR /home/notebook
 #ENTRYPOINT ["/usr/bin/sleep", "10000"]
