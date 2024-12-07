@@ -1,0 +1,5 @@
+qiskit
+jupyterlab
+matplotlib
+pulp
+scipy-openblas64

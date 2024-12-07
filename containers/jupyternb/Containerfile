@@ -1,11 +1,13 @@
 # https://jupyter.org/install
 # https://developer.parrot.com/docs/olympe/pip_on_debian_based_distros.html
 # https://www.linode.com/docs/guides/create-a-python-virtualenv-on-debian-10/
-FROM debian:trixie
-SHELL ["/bin/bash", "-c"]
-RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt autoremove --yes && /usr/bin/apt install python3.12-minimal python3-pip virtualenv --yes && /usr/bin/apt clean
-RUN /usr/bin/mkdir -p /opt/virtualenvs && cd /opt/virtualenvs && virtualenv jupyter && /usr/bin/chmod 0755 jupyter/bin/activate 
-#&& source jupyter/bin/activate && /usr/bin/ls -lh /usr/bin/sleep
-#pip install --upgrade pip
-EXPOSE 8080
+FROM python:3.14-rc-slim
+LABEL org.opencontainers.image.authors="Jose Angel de Bustos Perez <jadebustos@gmail.com>"
+LABEL org.opencontainers.image.description="Jupyter Notebook"
+LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
+LABEL org.opencontainers.image.revision="1.0"
+COPY requirements.txt /tmp
+RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt autoremove --yes && /usr/bin/apt install gcc g++ clang gfortran flang-16 libopenblas-dev cmake --yes && /usr/bin/apt clean
+#RUN /usr/local/bin/python3 -m venv /opt/jupyter && /bin/bash -c "source /opt/jupyter/bin/activate ; /usr/local/bin/pip install --upgrade pip ; /opt/jupyter/bin/pip install -r /tmp/requirements.txt"
+#EXPOSE 8080
 ENTRYPOINT "/usr/bin/sleep" "10000"
