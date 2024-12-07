@@ -25,5 +25,4 @@ COPY runme.sh /
 COPY --chown=notebook jupyter_server_config.json /home/notebook/.jupyter
 EXPOSE 8888
 WORKDIR /home/notebook
-#ENTRYPOINT ["/usr/bin/sleep", "10000"]
 ENTRYPOINT ["/runme.sh"]
