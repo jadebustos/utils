@@ -1,5 +1,7 @@
-qiskit
+ipywidgets
 jupyterlab
 matplotlib
+pandas
 pulp
+qiskit
 scipy-openblas64
