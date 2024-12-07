@@ -1,7 +1,10 @@
 ipywidgets
 jupyterlab
+kaleido
 matplotlib
 pandas
+plotly
 pulp
 qiskit
+qiskit_ibm_runtime
 scipy-openblas64
