@@ -6,7 +6,7 @@
 $ podman run --rm -d --name notebook -v <YOUR LOCAL DIRECTORY>:/home/notebook/data:Z -p 8888:8888 quay.io/rhte_2019/notebook:v1
 ```
 
-Your notebooks will be readed/saved from/to **<YOUR LOCAL DIRECTORY>**.
+Your notebooks will be readed/saved from/to **\<YOUR LOCAL DIRECTORY\>**.
 
 ## Custom configuration 
 
