@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.authors="Jose Angel de Bustos Perez <jadebustos@g
 LABEL org.opencontainers.image.description="Jupyter Notebook"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 LABEL org.opencontainers.image.revision="1.0"
-RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt autoremove --yes && \
+RUN /usr/bin/apt update && /usr/bin/apt upgrade --yes && /usr/bin/apt install texlive-full --yes && /usr/bin/apt autoremove --yes && \
     /usr/bin/apt clean && /usr/sbin/useradd -md /home/notebook -s /bin/bash notebook
 USER notebook
 RUN /usr/bin/mkdir /home/notebook/.jupyter && /usr/bin/mkdir /home/notebook/data

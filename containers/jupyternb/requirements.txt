@@ -6,5 +6,6 @@ pandas
 plotly
 pulp
 qiskit
+qiskit_aer
 qiskit_ibm_runtime
 scipy-openblas64
