@@ -24,7 +24,7 @@ Bare in mind:
 
 1. If you are not using SELINUX you don't need to use **:Z**.
 1. Your notebooks will be readed/saved from/to **\<YOUR LOCAL DIRECTORY\>**.
-1. <YOUR LOCAL DIRECTORY> must be writable, in Linux you will probably need to configure **0777** perms to that directory.
+1. **\<YOUR LOCAL DIRECTORY\>** must be writable, in Linux you will probably need to configure **0777** perms to that directory.
 
 
 ## Custom configuration 
