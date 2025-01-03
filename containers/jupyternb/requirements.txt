@@ -3,6 +3,7 @@ jupyterlab
 kaleido
 matplotlib
 pandas
+pandoc
 plotly
 pulp
 pylatexenc
