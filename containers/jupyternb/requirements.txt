@@ -1,10 +1,15 @@
 bs4
+cirq
+dimod
 ipywidgets
 jupyterlab
 kaleido
 matplotlib
+netqasm
+ortools
 pandas
 pandoc
+pennylane
 plotly
 pulp
 pylatexenc
@@ -13,3 +18,4 @@ qiskit_aer
 qiskit_ibm_runtime
 scipy-openblas64
 selenium
+sequence

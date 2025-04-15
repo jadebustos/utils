@@ -1,0 +1,8 @@
+2025-04-15  José Ángel de Bustos Pérez  <jadebustos@archimedes.melmac.univ>
+
+	* Added netqasm and sequence to requirements.txt.
+
+2025-04-09  José Ángel de Bustos Pérez  <jadebustos@archimedes.melmac.univ>
+
+	* Added ortools, dimod, pennylane, and cirq to requirements.txt.
+

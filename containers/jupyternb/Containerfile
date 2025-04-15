@@ -16,7 +16,7 @@ FROM python:3.12.8-slim-bookworm
 LABEL org.opencontainers.image.authors="Jose Angel de Bustos Perez <jadebustos@gmail.com>"
 LABEL org.opencontainers.image.description="Jupyter Notebook"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
-LABEL org.opencontainers.image.revision="1.0"
+LABEL org.opencontainers.image.revision="1.1"
 RUN /usr/sbin/useradd -md /home/notebook -s /bin/bash notebook && \
     /usr/bin/mkdir -p /home/notebook/data && /usr/bin/chown -R notebook: /home/notebook
 COPY --chown=notebook --from=builder /home/notebook/  /home/notebook/
