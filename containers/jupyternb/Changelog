@@ -1,6 +1,10 @@
+2025-04-17  José Ángel de Bustos Pérez  <jadebustos@archimedes.melmac.univ>
+
+	* Added dwave-neal to requirements.txt.
+	
 2025-04-15  José Ángel de Bustos Pérez  <jadebustos@archimedes.melmac.univ>
 
-	* Added netqasm and sequence to requirements.txt.
+	* Added pipreqs, netqasm and sequence to requirements.txt.
 
 2025-04-09  José Ángel de Bustos Pérez  <jadebustos@archimedes.melmac.univ>
 

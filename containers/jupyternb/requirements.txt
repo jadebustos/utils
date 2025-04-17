@@ -1,6 +1,7 @@
 bs4
 cirq
 dimod
+dwave-neal
 ipywidgets
 jupyterlab
 kaleido
@@ -11,6 +12,7 @@ pandas
 pandoc
 pennylane
 plotly
+pipreqs
 pulp
 pylatexenc
 qiskit
